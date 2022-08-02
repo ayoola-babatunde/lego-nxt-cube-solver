@@ -2,6 +2,7 @@ import math
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
+from colorsys import rgb_to_hsv
 
 # Taken from https://stackoverflow.com/a/16020102
 def bgr2lab(inputColor):
@@ -173,3 +174,11 @@ def get_dominant_color(roi):
     _, counts = np.unique(labels, return_counts=True)
     dominant = palette[np.argmax(counts)]
     return dominant
+
+def frame_to_bgrhsvlab(frame): 
+    bgr = get_dominant_color(frame)
+    hsv = rgb_to_hsv(bgr[2]/255, bgr[1]/255, bgr[0]/255)
+    lab = np.array(bgr2lab(bgr))/100
+
+    bgr_hsv_lab = [bgr/255, hsv, lab]
+    return [x for xs in bgr_hsv_lab for x in xs]

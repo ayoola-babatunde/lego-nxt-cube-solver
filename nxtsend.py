@@ -24,12 +24,12 @@ class turnCube:
 
         #assign the motors
         #[motor, nxtbrick (1 or 2), adjustment]
-        self.Umotor = [nxt1_a, 1]
-        self.Fmotor = [nxt1_b, 1]
+        self.Umotor = [nxt1_b, 1]
+        self.Fmotor = [nxt1_a, 1]
         self.Lmotor = [nxt1_c, 1]
-        self.Rmotor = [nxt2_a, 2]
-        self.Bmotor = [nxt2_b, 2]
-        self.Dmotor = [nxt2_c, 2]
+        self.Rmotor = [nxt2_c, 2]
+        self.Bmotor = [nxt2_a, 2]
+        self.Dmotor = [nxt2_b, 2]
 
         #default power
         self.power = 50 

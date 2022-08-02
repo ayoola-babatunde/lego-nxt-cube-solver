@@ -12,7 +12,7 @@ class takepics:
 
         self.imgsave_num = 4
         self.imgsave_col = 'p'
-        self.path = "C:/Users/Ayoola_PC/Documents/PythonScripts/Rubiks_cube/Faces"
+        self.path = "C:/Users/Ayoola_PC/Documents/PythonScripts/Rubiks_cube/Gitfolder/lego-nxt-cube-solver/Faces/"
             
         #self.greenlines = False
 
