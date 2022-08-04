@@ -14,7 +14,7 @@ from nxtsend import turn_cube
 
 #%%
 #methods = "sheet", "txt", "camera"
-method = "txt"
+method = "camera"
 
 #%%
 if method == "sheet":
@@ -67,10 +67,10 @@ elif method == "camera":
         all_pred_col.append(pred_cols)
     
         
-        #add missing middle cubie
-        col_order = ['y', 'b', 'r', 'g', 'o', 'w']
-        for i, col_str in enumerate(col_order): 
-            all_pred_col[i].insert(4, col_order[i])
+    #add missing middle cubie
+    col_order = ['y', 'b', 'r', 'g', 'o', 'w']
+    for i, col_str in enumerate(col_order): 
+        all_pred_col[i].insert(4, col_order[i])
 
     
     state = "".join([x for xs in all_pred_col for x in xs])
@@ -79,6 +79,30 @@ elif method == "camera":
 solution = utils.solve(state, 'Kociemba')
 # %%
 turn_cube.turn_list(solution, wait=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

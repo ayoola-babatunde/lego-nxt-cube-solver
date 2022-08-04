@@ -16,7 +16,10 @@ class takepics:
             
         #self.greenlines = False
 
-    def show(self): 
+    def show(self, path=None, add_rand_num = False): 
+        if path == None: 
+            path = self.path
+
         while True: 
             #cv2.namedWindow('Take Pics')
             _, frame = self.cam.read()
@@ -43,8 +46,13 @@ class takepics:
             elif k == ord('w'): 
                 self.centercolor = (255,255,255)
                 self.imgsave_col = 'w'
-            elif k == 32:
-                img_name = f'{self.path}/{self.imgsave_col}{self.imgsave_num}.png'
+            elif k == 32: #if spacebar pressed
+                if add_rand_num: #add random number in training mode 
+                    img_name = f'{path}/{self.imgsave_col}{random.randint(1, 20000)}.png'
+                    print(img_name)
+                else: 
+                    img_name = f'{path}/{self.imgsave_col}{self.imgsave_num}.png'
+                    print(img_name)
                 cv2.imwrite(img_name, (frame[self.startcorner:self.startcorner+self.cubesize, self.startcorner:self.startcorner+self.cubesize, :]))
                 cv2.imwrite(img_name, cv2.flip(cv2.imread(img_name), 1))
                 print(f'{self.imgsave_col} photo taken')
