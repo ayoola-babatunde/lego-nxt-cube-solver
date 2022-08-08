@@ -6,7 +6,7 @@ import cv2
 from tqdm import tqdm
 from helpfns import frame_to_bgrhsvlab, get_cubies
 import numpy as np
-import pickle
+from logisticmodel import log_model
 
 
 #%%
@@ -55,10 +55,11 @@ elif method == "camera":
     white_face = cv2.imread(faces_path + 'w4.png')
 
     all_faces = [yellow_face, blue_face, red_face, green_face, orange_face, white_face]
-    color_dict = {0: 'blue2', 1: 'green2', 2: 'orange2', 3: 'red2', 4: 'white2', 5: 'yellow2'}
+    color_dict = {0: 'blue', 1: 'green', 2: 'orange', 3: 'red', 4: 'white', 5: 'yellow'}
     
-    with open('model1.pickle', 'rb') as handle:
-        log_reg_model = pickle.load(handle)
+    #with open('model1.pickle', 'rb') as handle:
+    #    log_reg_model = pickle.load(handle)
+    log_reg_model = log_model()
     
     all_pred_col = []
     for face in tqdm(all_faces): 
@@ -74,6 +75,13 @@ elif method == "camera":
 
     
     state = "".join([x for xs in all_pred_col for x in xs])
+
+    #write state to txt file for doublechecking
+
+    all_sides = ["".join(x) for x in all_pred_col]
+    with open("state.txt", "w") as f_: 
+        for side in all_sides: 
+            f_.write(f"{side[0:3]}\n{side[3:6]}\n{side[6:9]}\n\n")
 
 # %%
 solution = utils.solve(state, 'Kociemba')
