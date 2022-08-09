@@ -1,7 +1,7 @@
 #%%
 from rubik_solver import utils
 import pandas as pd
-from takepix import take_pics
+import takepix
 import cv2
 from tqdm import tqdm
 from helpfns import frame_to_bgrhsvlab, get_cubies
@@ -16,7 +16,6 @@ from nxtsend import turn_cube
 #methods = "sheet", "txt", "camera"
 method = "camera"
 
-#%%
 if method == "sheet":
     df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vRH493yWiJFM6gkZUN5TACSyGDMvLGIicTTLJXOrzLQeDhNfVXXjHUqAGfeDrhLbGmRRVjIug6HVL_J/pub?gid=0&single=true&output=csv', 
     header = None)
@@ -36,15 +35,8 @@ if method == "sheet":
     white_str = get_face_str(8,11,4,7)
     state = yellow_str + blue_str + red_str + green_str + orange_str + white_str
 
-elif method == "txt": 
-
-    with open('state.txt') as f: 
-        lines = f.readlines()
-
-    state = ''.join(lines).replace('\n', '')
-
-elif method == "camera":
-    take_pics.show()
+if method == "camera":
+    takepix.takepics().show()
     
     faces_path = 'C:/Users/Ayoola_PC/Documents/PythonScripts/Rubiks_cube/Gitfolder/lego-nxt-cube-solver/Faces/'
     red_face = cv2.imread(faces_path + 'r4.png')
@@ -83,42 +75,20 @@ elif method == "camera":
         for side in all_sides: 
             f_.write(f"{side[0:3]}\n{side[3:6]}\n{side[6:9]}\n\n")
 
+    #check that the txt file is correct, then press enter
+    input("Check txt file for accuracy")
+    method = "txt"
+
+if method == "txt": 
+
+    with open('state.txt') as f: 
+        lines = f.readlines()
+
+    state = ''.join(lines).replace('\n', '')
+
 # %%
 solution = utils.solve(state, 'Kociemba')
 # %%
 turn_cube.turn_list(solution, wait=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # %%

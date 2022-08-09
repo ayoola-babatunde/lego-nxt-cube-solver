@@ -1,7 +1,7 @@
 #%%
 import glob
 import cv2
-from takepix import take_pics
+import takepix
 from helpfns import get_cubies
 import random
 from tqdm import tqdm
@@ -10,7 +10,7 @@ from tqdm import tqdm
 save_in = "C:/Users/Ayoola_PC/Documents/PythonScripts/Rubiks_cube/Gitfolder/lego-nxt-cube-solver/Faces/Test/"
 
 #%%
-take_pics.show(path=save_in, add_rand_num=True)
+takepix.takepics().show(path=save_in, add_rand_num=True)
 
 #%%
 ##split pictures into colour folders
