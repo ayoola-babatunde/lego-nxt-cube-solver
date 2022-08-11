@@ -4,23 +4,22 @@ import time
 import nxt.locator
 import nxt.motor 
 import nxt.motcont
-# %%
-nxt1 = nxt.locator.find(name='1234')
 
-#%%
-nxt2 = nxt.locator.find(name='Lol')
-# %%
-nxt1_a = nxt.motor.Motor(nxt1, nxt.motor.Port(0))
-nxt1_b = nxt.motor.Motor(nxt1, nxt.motor.Port(1))
-nxt1_c = nxt.motor.Motor(nxt1, nxt.motor.Port(2))
-
-#%%
-nxt2_a = nxt.motor.Motor(nxt2, nxt.motor.Port(0))
-nxt2_b = nxt.motor.Motor(nxt2, nxt.motor.Port(1))
-nxt2_c = nxt.motor.Motor(nxt2, nxt.motor.Port(2))
 # %%
 class turnCube: 
-    def __init__(self, nx1, nx2): 
+    def __init__(self): 
+        nxt1 = nxt.locator.find(name='1234')
+
+        nxt2 = nxt.locator.find(name='Lol')
+
+        nxt1_a = nxt.motor.Motor(nxt1, nxt.motor.Port(0))
+        nxt1_b = nxt.motor.Motor(nxt1, nxt.motor.Port(1))
+        nxt1_c = nxt.motor.Motor(nxt1, nxt.motor.Port(2))
+
+
+        nxt2_a = nxt.motor.Motor(nxt2, nxt.motor.Port(0))
+        nxt2_b = nxt.motor.Motor(nxt2, nxt.motor.Port(1))
+        nxt2_c = nxt.motor.Motor(nxt2, nxt.motor.Port(2))
 
         #assign the motors
         #[motor, nxtbrick (1 or 2), adjustment]
@@ -35,10 +34,10 @@ class turnCube:
         self.power = 50 
 
         #set up motor control.rxe
-        self.mc1 = nxt.motcont.MotCont(nx1)
+        self.mc1 = nxt.motcont.MotCont(nxt1)
         self.mc1.start()
 
-        self.mc2 = nxt.motcont.MotCont(nx2)
+        self.mc2 = nxt.motcont.MotCont(nxt2)
         self.mc2.start()
 
         self.adjust = 3 #number of degrees to adjust each turn
@@ -46,7 +45,6 @@ class turnCube:
         self.sleep_time = 1 #number of seconds to sleep between moves
 
         self.invert_list = ["U", "R", "B"] #motors that are turning backward
-
 
     def invert(self, move): 
         if len(move)==1: 
@@ -109,14 +107,4 @@ class turnCube:
                 input("")
             
        
-            
-
-
-        
-
-
-            
-
-
-turn_cube = turnCube(nxt1, nxt2)
 # %%
