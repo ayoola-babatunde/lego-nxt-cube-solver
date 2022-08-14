@@ -1,0 +1,9 @@
+matplotlib==3.4.1
+numpy==1.20.1
+nxt==0.1
+nxt_python==3.1.0
+opencv_python==4.6.0.66
+pandas==1.2.3
+rubik_solver==0.2.0
+scikit_learn==1.1.2
+tqdm==4.62.3
