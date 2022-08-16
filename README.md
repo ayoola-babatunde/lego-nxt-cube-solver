@@ -1,14 +1,13 @@
 # lego-nxt-cube-solver
 
-
-https://user-images.githubusercontent.com/45503370/184534183-e9cf61b4-5684-4821-80d5-0fa76c5122c4.mp4
+<img src="Readme%20imgs/final_solve.gif" alt="Final Solve" width="600"/>
 
 
 ### Design 
 
-I designed the machine in Bricklink Studio and built it over the course of three months in Summer 2022. I wanted to make a 6-axis robot but did not have time to add Lego colour sensors, so I used a logistic regression model to analyze the cube state. 
+I designed the machine in Bricklink Studio and built/programmed it over the course of three months in Summer 2022. I wanted to make a 6-axis robot but did not have time to add Lego colour sensors, so I used the webcam to take photos of the sides and a logistic regression model to analyze the cube state. 
 
-<img src="Readme%20imgs/rubiks_cube_animation.gif" alt="Design in Studio" width="300"/>
+<img src="Readme%20imgs/bricklink_animation.gif" alt="Design in Studio" width="400"/>
 
 <br />
 
@@ -22,7 +21,7 @@ I designed the machine in Bricklink Studio and built it over the course of three
 - Accurate-ish turning of the sides to excecute the solution. This was a challenge because turning over bluetooth instead of usb is way less accurate. There is also no official framework to control Mindstorms NXT from Python. I hot-glued a round brick to the center piece of the cube to enable turning. 
 
     <img src="Readme%20imgs/gluing_centers.gif" alt="Gluing the center to lego piece" width="200"/>
-    <img src="Readme%20imgs/all_centers.gif" alt="All glued centers" width="208"/>
+    <img src="Readme%20imgs/all_centers.gif" alt="All glued centers" width="200"/>
 
 <br />
 
