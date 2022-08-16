@@ -34,3 +34,5 @@ My main inspiration was [SquidCuber](https://github.com/efrantar/squidcuber). I 
 - [rutujapadgilwar06](https://github.com/rutujapadgilwar06/rubik-s-cube-solver)'s webcam scanning grid
 
 The Studio model can be found on Bricklink [here](https://www.bricklink.com/v3/studio/design.page?idModel=352079). 
+
+I made a [YouTube video](https://youtu.be/l03atw1TRHM). 
