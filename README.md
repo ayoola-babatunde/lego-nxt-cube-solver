@@ -33,6 +33,7 @@ My main inspiration was [SquidCuber](https://github.com/efrantar/squidcuber). I 
 - [kkoomen](https://github.com/kkoomen/qbr)'s helper functions
 - [rutujapadgilwar06](https://github.com/rutujapadgilwar06/rubik-s-cube-solver)'s webcam scanning grid
 
-The Studio model can be found on Bricklink [here](https://www.bricklink.com/v3/studio/design.page?idModel=352079). 
+### Files/Video
+The Studio 2.0 model file is listed above as `rubiks cube solver.io`. 
 
 I made a [YouTube video](https://youtu.be/l03atw1TRHM). 
